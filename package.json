@@ -1,0 +1,29 @@
+{
+  "name": "es6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulp.js",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js & gulp"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babelify": "^6.3.0",
+    "babylonjs": "^2.4.1",
+    "browserify": "^11.2.0",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.6.0",
+    "node-sass": "^3.10.1",
+    "pubsub-js": "^1.5.3",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.4.0"
+  }
+}
