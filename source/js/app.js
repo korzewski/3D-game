@@ -6,8 +6,9 @@ function init() {
     const canvas = document.getElementById('game');
     const engine = new Babylon.Engine(canvas);
     const scene = new Babylon.Scene(engine);
-    scene.clearColor = new Babylon.Color3(0.3, 0.3, 0.3);
+    scene.clearColor = new Babylon.Color3(0.1, 0.1, 0.1);
     scene.collisionsEnabled = true;
+    // scene.debugLayer.show();
 
     window.addEventListener("resize", () => {
         engine.resize();

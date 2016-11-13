@@ -1,18 +1,23 @@
 import Babylon from 'babylonjs';
 
 const squareSize = 4;
+const textureScale = 5;
 
 export default class Map {
     constructor(scene) {
         this.scene = scene;
 
         this.wallsMaterial = new Babylon.StandardMaterial('material', this.scene);
-        this.wallsMaterial.emissiveColor = new Babylon.Color3(0.58, 0.58, 0.86);
+        this.wallsMaterial.emissiveColor = new Babylon.Color3(0.5, 0.5, 0.5);
+        this.wallsMaterial.diffuseTexture = new Babylon.Texture('../extra/img/texture1.png', this.scene);
+        this.wallsMaterial.diffuseTexture.uScale = textureScale;
+        this.wallsMaterial.diffuseTexture.vScale = textureScale;
 
         this.floorMaterial = new Babylon.StandardMaterial('material', this.scene);
-        this.floorMaterial.emissiveColor = new Babylon.Color3(0, 0.58, 0.86);
-        this.floorMaterial.alpha = 0.5;
-        this.floorMaterial.diffuseColor = new Babylon.Color3(1, 0.58, 0.86);
+        this.floorMaterial.emissiveColor = new Babylon.Color3(0.3, 0.3, 0.3);
+        this.floorMaterial.diffuseTexture = new Babylon.Texture('../extra/img/texture2.png', this.scene);
+        this.floorMaterial.diffuseTexture.uScale = textureScale;
+        this.floorMaterial.diffuseTexture.vScale = textureScale;
 
         this.loadLevel('level1');
     }
@@ -64,11 +69,11 @@ export default class Map {
 
         this.wallMeshes = [];
         levelData.layers.walls.forEach(wallData => {
-            const wallMesh = Babylon.Mesh.CreateBox('box', squareSize, this.scene);
+            const wallMesh = Babylon.Mesh.CreateBox('box', squareSize + 0.02, this.scene);
             wallMesh.material = this.wallsMaterial;
             wallMesh.position.x = wallData.x * squareSize;
             wallMesh.position.z = wallData.y * squareSize;
-            wallMesh.position.y = squareSize/2 - 0.02;
+            wallMesh.position.y = squareSize/2 + 0.02;
             wallMesh.checkCollisions = true;
 
             this.wallMeshes[this.wallMeshes.length] = wallMesh;
